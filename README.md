@@ -1,7 +1,4 @@
-> 🚨 **Notice: This project is under active development.** Sections marked
-> `🔬 [DRAFT / TO BE VALIDATED]` describe hypotheses or proposed use-cases that
-> have not yet been empirically benchmarked. See the [Roadmap](#-roadmap) for
-> current status. Contributions and rigorous scrutiny are welcome.
+> 🚨 Notice: This project is Contributions and rigorous scrutiny are welcome.
 
 # ✨ |W_Alone⟩ — The Alone State
 
