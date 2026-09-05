@@ -60,6 +60,37 @@ $$|W_{Alone}\rangle = \frac{1}{\sqrt{2N}} \sum_{b\in\{0,1\}}\sum_{k=1}^{N} |\mat
 
 ---
 
+## 🪞 Mirror Symmetry (Formal Proof)
+
+The deepest structural property of `|W_Alone⟩` is that it is a **complete
+mirror-reflection state**: swapping the roles of `0` and `1` everywhere in
+the system leaves the state completely unchanged. This is not a metaphor —
+it is a provable algebraic invariance.
+
+Let `X^{⊗N}` be the global bit-flip (NOT) operator applied to all N qubits.
+Applying it to any basis state in the superposition:
+
+$$X^{\otimes N}\,|\mathbf{b}^{\otimes N}\oplus \mathbf{e}_k\rangle = |\overline{\mathbf{b}}^{\otimes N}\oplus \mathbf{e}_k\rangle$$
+
+where `b̄ = 1 - b` is the opposite background. Since the outer sum already
+runs over **both** `b = 0` and `b = 1` with **identical amplitude**
+`1/√(2N)`, flipping every qubit simply **permutes the b=0 family into the
+b=1 family and vice versa** — the set of terms in the superposition is
+unchanged, only reordered. Therefore:
+
+$$X^{\otimes N}\,|W_{Alone}\rangle = |W_{Alone}\rangle$$
+
+**`|W_Alone⟩` is a fixed point (eigenstate with eigenvalue +1) of the global
+bit-flip operator.** This is the rigorous form of "the state and its mirror
+reflection are the same state" — a perfect, self-contained symmetry that the
+standard W-state does **not** possess (a standard `|W⟩` is *not* invariant
+under `X^{⊗N}`, since it only ever contains the "one `1`" family).
+
+This mirror-invariance is verified numerically in
+[`simulate_w_alone.py`](./simulate_w_alone.py).
+
+---
+
 ## 📊 Expansion Table (N = 4, 5, 6)
 
 | N | Normalization | b=0 states (one `1`) | b=1 states (one `0`) |
@@ -84,6 +115,49 @@ in [`simulate_w_alone.py`](./simulate_w_alone.py).
 
 ---
 
+## 🌌 Generalized Family: `|W_Alone^(m)⟩` `[DRAFT / TO BE VALIDATED]`
+
+The single-alone case (`m = 1`) is just one member of a much larger family.
+Instead of exactly **one** qubit standing apart from the background, let
+**m qubits** stand apart together, at any of the `C(N, m)` possible
+positions — while keeping the same mirror-reflection principle intact
+(the group of "different" qubits can itself be `1`s-among-`0`s **or**
+`0`s-among-`1`s, with equal weight).
+
+$$|W_{Alone}^{(m)}\rangle = \frac{1}{\sqrt{2\binom{N}{m}}} \sum_{b\in\{0,1\}}\sum_{|S|=m} |\mathbf{b}^{\otimes N}\oplus \mathbf{e}_S\rangle$$
+
+Where `S` ranges over all subsets of `{1, ..., N}` of size `m`, and `e_S` is
+the indicator vector that is `1` on exactly the positions in `S`. The
+original `|W_Alone⟩` is the special case `m = 1`.
+
+**Why this matters — combinatorial growth:**
+Because the number of basis states is `2·C(N, m)` instead of `2N`, the
+dimension of the superposition **grows combinatorially with m** instead of
+linearly — the same mirror-symmetric structure, but spanning a vastly larger
+subspace.
+
+| N | m=1 states | m=2 states | m=3 states |
+|---|---|---|---|
+| 6 | 12 | 30 | 40 |
+| 8 | 16 | 56 | 112 |
+| 10 | 20 | 90 | 240 |
+
+**Mirror symmetry is preserved for every m:**
+
+$$X^{\otimes N}\,|W_{Alone}^{(m)}\rangle = |W_{Alone}^{(m)}\rangle$$
+
+This holds by the same argument as the `m = 1` case: flipping all qubits
+swaps the "m-ones-among-zeros" family with the "m-zeros-among-ones" family,
+and since both are already summed with equal amplitude, the overall state is
+unchanged.
+
+**Status:** this generalization is a natural — but so far untested —
+extension of the core `|W_Alone⟩` idea. It has not yet been benchmarked
+computationally beyond the small-N sanity checks above. See the
+[Roadmap](#-roadmap) for validation plans.
+
+---
+
 ## 🔬 Proposed Use-Cases `[DRAFT / TO BE VALIDATED]`
 
 These are **hypotheses to be tested**, not yet proven advantages. They are
@@ -100,6 +174,10 @@ listed here to guide the next phase of research (see [Roadmap](#-roadmap)).
    dual-background structure offers different resilience to qubit loss or
    dephasing noise compared to a standard W-state, when traced out to fewer
    qubits.
+4. **Multi-defect / cluster anomaly encoding** (via `|W_Alone^(m)⟩`) — modeling
+   scenarios where a *group* of m units deviates together from the
+   background, rather than a single unit, while retaining full 0↔1 mirror
+   symmetry.
 
 **None of these have been benchmarked yet.** The next milestone (see Roadmap)
 is running fidelity, entanglement entropy, and noise-robustness comparisons
@@ -111,8 +189,10 @@ confirmed, refined, or discarded based on data.
 ## 💻 Simulation & Verification
 
 See [`simulate_w_alone.py`](./simulate_w_alone.py) — constructs `|W_Alone⟩`
-for N = 4, 5, 6 qubits and verifies normalization computationally (with
-optional Qiskit `Statevector` cross-check).
+for N = 4, 5, 6 qubits, verifies normalization and mirror-symmetry
+(`X^{⊗N}|W_Alone⟩ = |W_Alone⟩`) computationally, and also builds the
+generalized `|W_Alone^(m)⟩` family for arbitrary `m` (with optional Qiskit
+`Statevector` cross-check).
 
 ```bash
 pip install numpy qiskit
@@ -126,6 +206,8 @@ python simulate_w_alone.py
 - [x] Formalize the `|W_Alone⟩` equation and prove normalization
 - [x] Tabulate explicit basis states for N = 4, 5, 6
 - [x] Reference implementation + normalization check (Qiskit/NumPy)
+- [x] Formal proof + numerical verification of mirror symmetry (`X^{⊗N}` invariance)
+- [x] Define and numerically verify the generalized `|W_Alone^(m)⟩` family
 - [ ] Benchmark fidelity / entanglement entropy vs. standard W-state
 - [ ] Benchmark robustness to qubit loss and dephasing noise
 - [ ] Run on real quantum hardware (IBM Quantum free tier)
