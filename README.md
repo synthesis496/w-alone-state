@@ -1,4 +1,4 @@
-> 🚨 Notice: This project is Contributions and rigorous scrutiny are welcome.
+>All states are treated in a unified superposition sector constrained by gauge symmetry.
 
 # ✨ |W_Alone⟩ — The Alone State
 
