@@ -1,5 +1,5 @@
 >All states are treated in a unified superposition sector constrained by gauge symmetry.
-
+เวอร์ชั่นเต็มอยู่ในหัว
 # ✨ |W_Alone⟩ — The Alone State
 
 ### A Symmetric, Nature-Inspired Extension of the Quantum W-State
