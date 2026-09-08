@@ -1,4 +1,4 @@
->All states are treated in a unified superposition sector constrained by gauge symmetry.
+>All states are treated in a unified superposition sector constrained by gauge symmetry.ไม่เชิงเส้น
 This Demo Ver. เวอร์ชั่นเต็มอยู่ในหัว,ฟีโบนัชชี่ออนยอนตัวเปิดประตู แกนหลักคืออันนี้+Topology+และตรรกนี้
 # ✨ |W_Alone⟩ — The Alone State
 
