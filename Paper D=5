@@ -1,0 +1,30 @@
+Expanding the Anyonic Doorman: Scaling Noise-Immune Quantum Computing to d=5 Quintic Qudits
+Inventor and Architect of this Quantum Logic : Chutiphong Bunloed (Buriram, Thailand)
+In our foundational architecture, Unlocking Noise-Free Quantum Computing: When the 0,1,1,2 Qudit Meets the Anyonic Doorman, we demonstrated how a d=4 qudit system utilizing twin states {0, 1A, 1B, 2} eliminates decoherence without the overhead of active Quantum Error Correction (QEC).
+By scaling this framework to a Prime Dimension d=5 (Quintic Qudit), we unlock a true self-symmetric fixed point and dual-mirror degenerate subspaces, establishing a hardware layer that operates with near-zero noise density.
+1. Mathematical Formulation of the d=5 Basis
+To extend the Decoherence-Free Subspace (DFS) across d=5, we formulate a 7-state expanded mapping around the central anchor state 2:
+d=5 Basis Set: B_{d=5} = { 0, 1A, 1B, 2, 3A, 3B, 4 }
+The logical superposition sector is defined by two anti-symmetric twin pairs acting as destructive interference shields against collective dephasing:
+Logical State: Psi_logical = (1 / sqrt(2)) * (1A - 1B) (x) (1 / sqrt(2)) * (3A - 3B)
+2. Conservation Law & Reflection Operator
+The structural integrity of the d=5 architecture is governed by a global gauge conservation constraint modulo 5:
+Conservation Law: (q1 + q2) mod 5 = 4
+Under environmental phase noise, the Reflection Operator P_{04} maps states mirror-symmetrically across the anchor 2:
+Reflection Mapping: P_{04}(x) = (4 - x) mod 5
+Fixed Point Anchor: P_{04}(2) = (4 - 2) mod 5 = 2
+Because 2 is inherently invariant under P_{04}, the central state provides a Self-Symmetric Anchor that prevents phase drift across gate operations.
+3. Anyonic Doorman Energy Channels (d=5)
+Instead of physically braiding quasiparticles, local fusion operations and projective measurements act as an Anyonic Doorman, modulating 5 discrete energy levels without mechanical movement:
+Doorman Hamiltonian: H_Doorman = sum_k ( E_k * P_k ) where P_k = |k><k|
+When a projective measurement M_k triggers the Doorman, the internal state shifts at light-speed:
+Gate Operation: U_Gate = exp( -i * (pi / 5) * (Z5_1 (x) Z5_2) )
+Phase Shift Operator: Z5 = sum_k ( exp(i * 2 * pi * k / 5) * |k><k| )
+Because d=5 is a prime dimension, the spectrum of Z5 contains no subfield degeneracies, completely closing the channels for cross-talk leakage.
+4. Autonomous Self-Healing via Gauge Filtering
+When local noise corrupts a single state component (yielding Outcome = 0), the system triggers an immediate projection that cleanses the contaminated subspace:
+Clean State: Psi_clean = (1 / sqrt(N)) * [ sum_{k=1}^{N-1} (0^{\otimes N-1} (+) e_k) + 1^{\otimes N-1} ]
+The remaining (N-1) subsystem collapses back into a pristine, reduced W_Alone state around the central 2 anchor, expelling entropy without residual noise artifacts.
+Conclusion
+Scaling from d=4 to d=5 replaces conventional error recovery with strict mathematical conservation. By uniting a prime-dimension DFS, static Anyonic Doorman operations, and self-healing gauge mechanics, the d=5 architecture provides a deterministic path toward scalable, fault-tolerant quantum hardware.
+
