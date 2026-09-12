@@ -2,6 +2,11 @@
 This Demo Ver. เวอร์ชั่นเต็มอยู่ในหัว,ฟีโบนัชชี่ออนยอนตัวเปิดประตู แกนหลักคืออันนี้+Topology+และตรรกนี้
 # ✨ |W_Alone⟩ — The Alone State
 
+คิวดิต d=5 ถึง ∞ สะท้อนขยาย+ สะท้อนพับทบ
+Fermison(พิมพ์ไม่ผิด)แกนกลางประมวลTQC
+สมมาตร+กระจกสะท้อนทุกมิติ+กฎอนุรักษ์
+(0, 1_A, 1_B, 2, 3_A, 3_B, 4)
+
 ### A Symmetric, Nature-Inspired Extension of the Quantum W-State
 
 **Author / Concept by:** Chutiphong Bunloed ([@synthesis496](https://github.com/synthesis496))
